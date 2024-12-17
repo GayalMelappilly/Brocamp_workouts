@@ -1,31 +1,35 @@
+//         1        
+//       1   1      
+//     1   2   1    
+//   1   3   3   1  
+// 1   4   6   4   1
+
 #include<stdio.h>
 int main(){
-	int i, j, limit, l=1, r=1, arr[100];
+	int i,j,limit,prev[100],num=1,count=1;
 
 	printf("ENTER THE LIMIT : ");
 	scanf("%d",&limit);
 
-    arr[0] = 1;
-    arr[1] = 1;
-
 	for(i=0;i<limit;i++){
 		for(j=0;j<limit-i;j++){
-			printf(" ");
+			printf("  ");
 		}
+
 		for(j=0;j<=i;j++){
-            if(j==i || j==0){
-			    printf("1 ");
-            }else{
-                arr[j] = l+r;
-			    printf("%d ",arr[j]+arr[j-1]-1);
-                l = arr[j-1];
-                r = arr[j];
-            }
+			if(j==0 || j==i){
+				printf("1   ");
+				prev[j]=1;
+			}else{
+				num = prev[j-1]+prev[j];
+				prev[j]=num;
+				if(j == (i/2)+1){
+					num = prev[j-count];
+					count = count + 2;
+				}
+				printf("%d   ",num);
+			}
 		}
-        arr[i] = 1;
 		printf("\n");
-        // for(j=0;j<5;j++){
-        //     printf("ARR = %d ",arr[j]);
-        // }
 	}
 }
