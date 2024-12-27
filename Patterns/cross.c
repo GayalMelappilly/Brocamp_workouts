@@ -1,30 +1,21 @@
-// * * * * * * * * * * * * * * * * * * * * * * * * *
-//   *           *   *           *   *           *
-//     *       *       *       *       *       *
-//       *   *           *   *           *   *
-//         *               *               *
-//       *   *           *   *           *   *
-//     *       *       *       *       *       *
-//   *           *   *           *   *           *
-// * * * * * * * * * * * * * * * * * * * * * * * * *
-
 #include<stdio.h>
 int main(){
-    int limit, i, j;
-
-    printf("ENTER THE LIMIT : ");
-    scanf("%d", &limit);
-
-    for(i=0;i<limit;i++){
-        for(j=0;j<i;j++){
-            printf("  ");
-        }
-        printf("*");
-        for(j=0;j<(limit*2)-i;j++){
-            printf(" ");
-        }
-        printf("*");
-
+	int limit,i,j;
+	
+	printf("ENTER THE LIMIT : ");
+	scanf("%d",&limit);
+		
+	for(i=1;i<=limit*2;i++){
+		for(j=1;j<=limit*2;j++){
+            if(i==limit*2){
+                break;
+            }
+			if(j == i || j == limit*2-i){
+				printf("* ");
+			}else{
+				printf(" ");
+			}
+		}
         printf("\n");
-    }
+	}
 }
